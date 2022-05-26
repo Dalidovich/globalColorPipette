@@ -43,5 +43,11 @@ namespace globalColorPipette
         {
             HookSettings.setHookOnCombinations();
         }
+        public static void showTips(string s,string t= "add to Clipboard")
+        {
+            NotifyController.notificationIcon.BalloonTipTitle = t;
+            NotifyController.notificationIcon.BalloonTipText = s;
+            NotifyController.notificationIcon.ShowBalloonTip(1500);
+        }
     }
 }

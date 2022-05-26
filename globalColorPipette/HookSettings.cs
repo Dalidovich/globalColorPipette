@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using globalColorPipette;
 
 namespace globalColorPipette
@@ -13,12 +14,14 @@ namespace globalColorPipette
         public static void setHookOnCombinations()
         {
             mouseHook = new MouseHook();
-            mouseHook.LeftButtonUp += new MouseHook.MouseHookCallback(mouseHook_KeyUp);
-            mouseHook.LeftButtonDown += new MouseHook.MouseHookCallback(mouseHook_KeyDown);
+            mouseHook.LeftButtonUp += new MouseHook.MouseHookCallback(lMouseHook_KeyUp);
+            mouseHook.LeftButtonDown += new MouseHook.MouseHookCallback(lMouseHook_KeyDown);
+
+            mouseHook.RightButtonUp += new MouseHook.MouseHookCallback(rMouseHook_KeyDown);
             mouseHook.Install();
         }
         static bool canPippet = false;
-        private static void mouseHook_KeyUp(MouseHook.MSLLHOOKSTRUCT key)
+        private static void lMouseHook_KeyUp(MouseHook.MSLLHOOKSTRUCT key)
         {
             if (canPippet)
             {
@@ -27,9 +30,15 @@ namespace globalColorPipette
                 canPippet = false;
             }
         }
-        private static void mouseHook_KeyDown(MouseHook.MSLLHOOKSTRUCT key)
+        private static void lMouseHook_KeyDown(MouseHook.MSLLHOOKSTRUCT key)
         {
             canPippet = true;
+        }
+        private static void rMouseHook_KeyDown(MouseHook.MSLLHOOKSTRUCT key)
+        {
+            mouseHook.Uninstall();
+            canPippet = false;
+            //NotifyController.showTips("pipette drop", "!");
         }
     }
 }

@@ -44,9 +44,7 @@ namespace globalColorPipette
         public static void addInClipBoard(string s)
         {
             Clipboard.SetText(s);
-            NotifyController.notificationIcon.BalloonTipTitle= "add to Clipboard";
-            NotifyController.notificationIcon.BalloonTipText=s;
-            NotifyController.notificationIcon.ShowBalloonTip(1500);
+            NotifyController.showTips(s);
         }
         
     }
