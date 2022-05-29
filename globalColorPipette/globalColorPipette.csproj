@@ -47,10 +47,10 @@
   <ItemGroup>
     <Compile Include="HookSettings.cs" />
     <Compile Include="HideConsoleWindow.cs" />
+    <Compile Include="IconsController.cs" />
     <Compile Include="MouseHook.cs" />
     <Compile Include="NotifyController.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,7 @@ namespace globalColorPipette
 
             notificationIcon = new NotifyIcon()
             {
-                Icon = new Icon("pipetteIcon.ico"),
+                Icon = IconsController.createPipetteIconForNotify(),
                 ContextMenu = menu
             };
             notificationIcon.MouseDoubleClick += new MouseEventHandler(ni_Click);
